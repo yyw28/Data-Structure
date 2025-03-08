@@ -1,0 +1,37 @@
+class Stack_LinkedList:
+    def __init__(self):
+        self.stack = SinglyLinkedList()
+
+    def is_empty(self):
+        return self.stack.size == 0
+    
+    def push(self, value):
+        self.stack.append(value)
+
+    def pop(self):
+        if self.is_empty():
+            return None
+        else:
+            removed = self.stack.tail.node
+            self.stack.remove_at_index(self.stack.size - 1)
+            return removed
+        
+    def peek(self):
+        if self.is_empty():
+            return None
+        else:
+            return self.stack.tail.node
+    
+    def print_stack(self):
+        self.stack.print()
+        
+
+if __name__ == "__main__":
+    stack = Stack_LinkedList()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    print(stack.peek())
+    stack.print_stack()
+    print(stack.pop())
+    stack.print_stack()
