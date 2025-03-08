@@ -1,0 +1,35 @@
+class Queue_LinkeList:
+    def __init__(self):
+        self.queue = SinglyLinkedList()
+    
+    def enqueue(self, item):
+        self.queue.append(item)
+    
+    def dequeue(self):
+        if self.queue.size == 0:
+            return None
+        removed = self.queue.head.node
+        self.queue.remove_at_index(0)
+        return removed
+    
+    def display(self):
+        self.queue.print()
+    
+    def size(self):
+        return self.queue.size
+    
+if __name__ == "__main__":
+    queue = Queue_LinkeList()
+
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.enqueue(3)
+    queue.display()
+    queue.dequeue()
+    queue.display()
+    print(queue.size())
+    queue.enqueue(4)
+    queue.display()
+    queue.dequeue()
+    queue.dequeue()
+    queue.display()
